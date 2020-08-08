@@ -1,0 +1,116 @@
+#page-forgot {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.forgot-form {
+  width: 100vw;
+  height: 100%;
+  background: var(--color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forgot-form form {
+  max-width: 35.2rem;
+  width: 100%;
+  margin-top: 7rem;
+}
+
+.forgot-form fieldset {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.forgot-form fieldset > p {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.forgot-form fieldset legend {
+  font: 700 3.6rem Poppins;
+  color: var(--color-text-title);
+}
+
+.forgot-form form .input-container {
+  margin-top: 4rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  border: 1px solid var(--color-line-in-white);
+}
+
+.forgot-form form .input-container input {
+  padding: 2.4rem;
+  background: #fff;
+  border: 0;
+  outline: none;
+  width: 100%;
+}
+
+.forgot-form form .input-container .field + .field {
+  border-top: 1px solid var(--color-line-in-white);
+}
+
+.forgot-form form .input-container .password-field {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.forgot-form form .input-container .password-field img {
+  margin-right: 2.4rem;
+  cursor: pointer;
+}
+
+.forgot-form form .input-container input::placeholder {
+  color: var(--color-text-complement);
+}
+
+.forgot-form form .button-container {
+  margin-top: 4rem;
+}
+
+.forgot-form form .button-container button {
+  width: 100%;
+  padding: 1.6rem 0;
+  border-radius: 0.8rem;
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: var(--color-secundary);
+  font-size: 1.6rem;
+}
+
+.hero-content {
+  width: 0vw;
+  background: var(--color-primary);
+  display: none;
+}
+
+.hero-content .bg-image {
+  height: 100%;
+  background: url('../../assets/images/background.png') no-repeat center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content .bg-image h2 {
+  color: var(--color-text-in-primary);
+  font-weight: normal;
+}
+
+@media (min-width: 1100px) {
+  .hero-content {
+    width: 50vw;
+    display: initial;
+  }
+
+  .forgot-form {
+    width: 50vw;
+  }
+}

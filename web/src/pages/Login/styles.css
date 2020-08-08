@@ -1,0 +1,171 @@
+#page-login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.hero-content {
+  width: 0vw;
+  background: var(--color-primary);
+}
+
+.hero-content .bg-image {
+  height: 100%;
+  background: url('../../assets/images/background.png') no-repeat center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content .bg-image h2 {
+  color: var(--color-text-in-primary);
+  font-weight: normal;
+}
+
+.login-form {
+  width: 100vw;
+  height: 100%;
+  background: var(--color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form form {
+  max-width: 35.2rem;
+  width: 100%;
+  margin-top: 7rem;
+}
+
+.login-form fieldset {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form fieldset legend {
+  font: 700 3.6rem Poppins;
+  color: var(--color-text-title);
+}
+
+.login-form form .input-container {
+  margin-top: 4rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  border: 1px solid var(--color-line-in-white);
+}
+
+.login-form form .input-container input {
+  padding: 2.4rem;
+  background: #fff;
+  border: 0;
+  outline: none;
+  width: 100%;
+}
+
+.login-form form .input-container .email-field {
+  border-bottom: 1px solid var(--color-line-in-white);
+}
+
+.login-form form .input-container .password-field {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.login-form form .input-container .password-field img {
+  margin-right: 2.4rem;
+  cursor: pointer;
+}
+
+.login-form form .input-container input::placeholder {
+  color: var(--color-text-complement);
+}
+
+.login-form form .password {
+  margin-top: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-form form .password input {
+  border: none;
+  outline: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: #fff;
+  margin-right: 0.8rem;
+}
+
+.login-form form .password .password-remember {
+  display: flex;
+  align-items: center;
+}
+
+.login-form form .password .password-remember label {
+  font-size: 1.4rem;
+  color: var(--color-text-complement);
+  font-weight: normal;
+}
+
+.login-form form .password .password-forgot a {
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: var(--color-text-complement);
+  font-weight: normal;
+}
+
+.login-form form .button-container {
+  margin-top: 4rem;
+}
+
+.login-form form .button-container button {
+  width: 100%;
+  padding: 1.6rem 0;
+  border-radius: 0.8rem;
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: var(--color-secundary);
+  font-size: 1.6rem;
+}
+
+.login-form form .links-container {
+  margin-top: 12.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-form form .links-container .register-link p {
+  font-size: 1.6rem;
+}
+
+.login-form form .links-container .register-link a {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.login-form form .links-container .text-right {
+  font-size: 1.2rem;
+  color: var(--color-text-complement);
+}
+
+.login-form form .links-container .text-right p {
+  display: flex;
+}
+
+.login-form form .links-container .text-right img {
+  margin-left: 0.8rem;
+}
+
+@media (min-width: 1100px) {
+  .hero-content {
+    width: 50vw;
+  }
+
+  .login-form {
+    width: 50vw;
+  }
+}
