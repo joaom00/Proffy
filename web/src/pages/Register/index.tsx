@@ -1,15 +1,45 @@
-import React from 'react';
+import React, { useState, FormEvent } from 'react';
 
 import logoImg from '../../assets/images/logo.svg';
 import eyeIcon from '../../assets/images/icons/eye.svg';
+import eyeOffIcon from '../../assets/images/icons/eye-off.svg';
 
 import './styles.css';
+import api from '../../services/api';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
+  const history = useHistory();
+
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  function handleCreateUser(event: FormEvent) {
+    event.preventDefault();
+
+    api
+      .post('users', {
+        first_name,
+        last_name,
+        email,
+        password,
+      })
+      .then(() => {
+        alert('Cadastro realizado com sucesso!');
+        history.push('/');
+      })
+      .catch((err) => {
+        alert('Erro no cadastro.');
+      });
+  }
+
   return (
     <section id="page-register">
       <div className="register-form">
-        <form>
+        <form onSubmit={handleCreateUser}>
           <fieldset>
             <legend>Cadastro</legend>
             <p>
@@ -20,22 +50,46 @@ const Register = () => {
             <div>
               <div className="input-container">
                 <div className="field">
-                  <input type="text" placeholder="Nome" />
+                  <input
+                    type="text"
+                    placeholder="Nome"
+                    value={first_name}
+                    onChange={(event) => setFirstName(event.target.value)}
+                  />
                 </div>
                 <div className="field">
-                  <input type="text" placeholder="Sobrenome" />
+                  <input
+                    type="text"
+                    placeholder="Sobrenome"
+                    value={last_name}
+                    onChange={(event) => setLastName(event.target.value)}
+                  />
                 </div>
                 <div className="field">
-                  <input type="email" placeholder="E-mail" />
+                  <input
+                    type="email"
+                    placeholder="E-mail"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
                 </div>
                 <div className="field password-field">
-                  <input type="text" placeholder="Senha" />
-                  <img src={eyeIcon} alt="Ver senha" />
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Senha"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                  />
+                  <img
+                    onClick={() => setShowPassword((prevState) => !prevState)}
+                    src={showPassword ? eyeOffIcon : eyeIcon}
+                    alt="Ver senha"
+                  />
                 </div>
               </div>
 
               <div className="button-container">
-                <button>Concluir cadastro</button>
+                <button type="submit">Concluir cadastro</button>
               </div>
             </div>
           </fieldset>

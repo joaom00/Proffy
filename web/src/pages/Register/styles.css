@@ -6,7 +6,6 @@
 
 .register-form {
   width: 100vw;
-  height: 100%;
   background: var(--color-background);
   display: flex;
   justify-content: center;
@@ -83,6 +82,11 @@
   cursor: pointer;
   background: var(--color-secundary);
   font-size: 1.6rem;
+  transition: background 0.2s;
+}
+
+.register-form form .button-container button:hover {
+  background: var(--color-secundary-dark);
 }
 
 .hero-content {
