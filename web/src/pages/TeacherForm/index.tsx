@@ -9,8 +9,9 @@ import Select from '../../components/Select';
 
 import warningIcon from '../../assets/images/icons/warning.svg';
 
-import './styles.css';
 import api from '../../services/api';
+
+import './styles.css';
 
 const TeacherForm = () => {
   const history = useHistory();

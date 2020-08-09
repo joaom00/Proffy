@@ -14,11 +14,27 @@ import LandingHeader from '../../components/LandingHeader';
 
 const Landing2 = () => {
   const [totalConnections, setTotalConnections] = useState(0);
+  const [tokenIsValid, setTokenIsValid] = useState(false);
 
   useEffect(() => {
     api.get('connections').then(({ data: { total } }) => {
       setTotalConnections(total);
     });
+  }, []);
+
+  useEffect(() => {
+    const token = window.localStorage.getItem('token');
+
+    if (token) {
+      api
+        .get('load-session')
+        .then(() => {
+          setTokenIsValid(true);
+        })
+        .catch(() => {
+          setTokenIsValid(false);
+        });
+    }
   }, []);
 
   return (
@@ -53,18 +69,20 @@ const Landing2 = () => {
             <span className="total-connections">
               Total de {totalConnections} conexões
               <br /> já realizadas{' '}
-              <img src={purpleHeartIcon} alt="Coração Roxo" />
-               
+              <img src={purpleHeartIcon} alt="Coração Roxo" /> 
             </span>
           </div>
 
           <div className="buttons-container">
-            <Link to="/study" className="study">
+            <Link to={tokenIsValid ? '/study' : '/login'} className="study">
               <img src={studyIcon} alt="Estudar" />
               Estudar
             </Link>
 
-            <Link to="/give-classes" className="give-classes">
+            <Link
+              to={tokenIsValid ? '/give-classes' : '/login'}
+              className="give-classes"
+            >
               <img src={giveClassesIcon} alt="Dar aulas" />
               Dar aulas
             </Link>

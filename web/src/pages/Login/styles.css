@@ -2,14 +2,15 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  overflow: hidden;
 }
 
-.hero-content {
+#page-login .hero-content {
   width: 0vw;
   background: var(--color-primary);
 }
 
-.hero-content .bg-image {
+#page-login .hero-content .bg-image {
   height: 100%;
   background: url('../../assets/images/background.png') no-repeat center center;
   display: flex;
@@ -17,13 +18,14 @@
   align-items: center;
 }
 
-.hero-content .bg-image h2 {
+#page-login .hero-content .bg-image h2 {
   color: var(--color-text-in-primary);
   font-weight: normal;
 }
 
 .login-form {
   width: 100vw;
+  height: 100vh;
   background: var(--color-background);
   display: flex;
   justify-content: center;
@@ -131,6 +133,10 @@
   font-size: 1.6rem;
 }
 
+.login-form form .button-container button:hover {
+  background: var(--color-secundary-dark);
+}
+
 .login-form form .links-container {
   margin-top: 12.8rem;
   display: flex;
@@ -160,7 +166,7 @@
 }
 
 @media (min-width: 1100px) {
-  .hero-content {
+  #page-login .hero-content {
     width: 50vw;
   }
 

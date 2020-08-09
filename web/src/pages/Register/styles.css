@@ -89,13 +89,13 @@
   background: var(--color-secundary-dark);
 }
 
-.hero-content {
+#page-register .hero-content {
   width: 0vw;
   background: var(--color-primary);
   display: none;
 }
 
-.hero-content .bg-image {
+#page-register .hero-content .bg-image {
   height: 100%;
   background: url('../../assets/images/background.png') no-repeat center center;
   display: flex;
@@ -103,13 +103,13 @@
   align-items: center;
 }
 
-.hero-content .bg-image h2 {
+#page-register .hero-content .bg-image h2 {
   color: var(--color-text-in-primary);
   font-weight: normal;
 }
 
 @media (min-width: 1100px) {
-  .hero-content {
+  #page-register .hero-content {
     width: 50vw;
     display: initial;
   }

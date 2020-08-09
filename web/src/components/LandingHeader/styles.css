@@ -2,12 +2,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1rem;
 }
 
 header .profile {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 header .profile img {

@@ -13,11 +13,12 @@ const connectionsController = new ConnectionsController();
 const usersController = new UsersController();
 const authController = new AuthController();
 
-routes.get('/users', authMiddleware, usersController.index);
-routes.post('/users', usersController.create);
+routes.get('/users/:id', authMiddleware, usersController.show);
+routes.post('/users', authMiddleware, usersController.create);
+routes.put('/users/:id', authMiddleware, usersController.update);
 
-routes.get('/classes', classesControllers.index);
-routes.post('/classes', classesControllers.create);
+routes.get('/classes', authMiddleware, classesControllers.index);
+routes.post('/classes', authMiddleware, classesControllers.create);
 
 routes.get('/connections', connectionsController.index);
 routes.post('/connections', connectionsController.create);
