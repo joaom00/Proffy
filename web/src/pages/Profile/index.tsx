@@ -34,36 +34,7 @@ const Profile = () => {
   const [subject, setSubject] = useState('');
   const [cost, setCost] = useState('');
 
-  const [scheduleItems, setScheduleItems] = useState<ScheduleItem[]>([
-    // { week_day: 0, from: '', to: '' },
-  ]);
-
-  function addNewScheduleItem() {
-    // setScheduleItems([
-    //   ...scheduleItems,
-    //   {
-    //     week_day: 0,
-    //     from: '',
-    //     to: '',
-    //   },
-    // ]);
-  }
-
-  // function setScheduleItemValue(
-  //   position: number,
-  //   field: string,
-  //   value: string
-  // ) {
-  //   const updatedScheduleItems = scheduleItems.map((scheduleItem, index) => {
-  //     if (index === position) {
-  //       return { ...scheduleItem, [field]: value };
-  //     }
-
-  //     return scheduleItem;
-  //   });
-
-  //   setScheduleItems(updatedScheduleItems);
-  // }
+  const [scheduleItems, setScheduleItems] = useState<ScheduleItem[]>([]);
 
   function handleUpdateUser(event: FormEvent) {
     event.preventDefault();
@@ -260,12 +231,7 @@ const Profile = () => {
           </fieldset>
 
           <fieldset>
-            <legend>
-              Horários disponíveis
-              <button type="button" onClick={addNewScheduleItem}>
-                + Novo horário
-              </button>
-            </legend>
+            <legend>Horários disponíveis</legend>
 
             {scheduleItems.map((scheduleItem) => {
               return (
