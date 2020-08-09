@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import Input from '../../components/Input';
@@ -14,7 +14,9 @@ import api from '../../services/api';
 
 import './styles.css';
 
-const TeacherForm2 = () => {
+const TeacherForm = () => {
+  const history = useHistory();
+
   const [userId, setUserId] = useState('');
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
@@ -71,7 +73,6 @@ const TeacherForm2 = () => {
         cost,
       })
       .then(() => {
-        alert('Aula criada com sucesso.');
         handleCreateClass();
       })
       .catch(() => {
@@ -86,8 +87,13 @@ const TeacherForm2 = () => {
         cost: Number(cost),
         schedule: scheduleItems,
       })
-      .then(() => {})
-      .catch(() => {});
+      .then(() => {
+        alert('Nova aula cadastrada.');
+        history.push('/');
+      })
+      .catch(() => {
+        alert('Parece que algo deu errado. Por favor tente novamente.');
+      });
   }
 
   useEffect(() => {
@@ -111,7 +117,7 @@ const TeacherForm2 = () => {
   }, [userId]);
 
   return (
-    <div id="page-teacherform2" className="container">
+    <div id="page-teacherform" className="container">
       <header className="page-header">
         <div className="top-bar-container">
           <Link to="/">
@@ -128,7 +134,7 @@ const TeacherForm2 = () => {
             animate={{ y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Meu perfil
+            Dar aulas
           </motion.p>
           <motion.img
             src={logoImg}
@@ -247,7 +253,7 @@ const TeacherForm2 = () => {
 
           <fieldset>
             <legend>
-              Horários disponíveis
+              Criar novo horário
               <button type="button" onClick={addNewScheduleItem}>
                 + Novo horário
               </button>
@@ -302,7 +308,6 @@ const TeacherForm2 = () => {
                       }
                     />
                   </motion.div>
-                  <button className="delete-item">Excluir</button>
                 </motion.div>
               );
             })}
@@ -322,4 +327,4 @@ const TeacherForm2 = () => {
   );
 };
 
-export default TeacherForm2;
+export default TeacherForm;

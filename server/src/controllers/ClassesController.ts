@@ -50,8 +50,21 @@ export default class ClassesController {
       .first();
 
     if (subjectUserExists) {
-      return res.status(404).json({
-        message: 'Esta aula já existe.',
+      const classSchedule = schedule.map((scheduleItem: ScheduleItem) => {
+        return {
+          class_id: subjectUserExists.id,
+          week_day: scheduleItem.week_day,
+          from: convertHourToMinutes(scheduleItem.from),
+          to: convertHourToMinutes(scheduleItem.to),
+        };
+      });
+
+      await trx('class_schedule').insert(classSchedule);
+
+      await trx.commit();
+
+      return res.status(200).json({
+        message: 'Agenda atualizada.',
       });
     }
 
@@ -89,7 +102,7 @@ export default class ClassesController {
   }
 
   async delete(req: Request, res: Response) {
-    const { class_id, week_day } = req.body;
+    const { class_id, week_day } = req.params;
 
     await db('class_schedule').delete().where({ class_id, week_day });
 

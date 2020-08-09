@@ -46,7 +46,7 @@ const Landing2 = () => {
 
           <div className="hero-content">
             <motion.div
-              initial={{ y: 50, skewY: 20, opacity: 0 }}
+              initial={{ y: 50, skewY: 15, opacity: 0 }}
               animate={{ y: 0, skewY: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
               className="logo-container"
@@ -83,7 +83,8 @@ const Landing2 = () => {
             <span className="total-connections">
               Total de {totalConnections} conexões
               <br /> já realizadas{' '}
-              <img src={purpleHeartIcon} alt="Coração Roxo" /> 
+              <img src={purpleHeartIcon} alt="Coração Roxo" />
+               
             </span>
           </motion.div>
 

@@ -19,6 +19,7 @@ interface ScheduleItem {
   week_day: number;
   from: number;
   to: number;
+  class_id: number;
 }
 
 const Profile = () => {
@@ -84,6 +85,11 @@ const Profile = () => {
       .catch(() => {
         alert('Parece que algo deu errado. Por favor tente novamente.');
       });
+  }
+
+  function handleDeleteClass(week_day: number, class_id: number) {
+    api.delete(`classes/${class_id}/${week_day}`);
+    document.location.reload();
   }
 
   useEffect(() => {
@@ -176,7 +182,7 @@ const Profile = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.6 }}
       >
-        <form>
+        <form onSubmit={handleUpdateUser}>
           <fieldset>
             <legend>Seus dados</legend>
 
@@ -300,7 +306,18 @@ const Profile = () => {
                       value={`${scheduleItem.to / 60} horas`}
                     />
                   </motion.div>
-                  <button className="delete-item">Excluir</button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      handleDeleteClass(
+                        scheduleItem.week_day,
+                        scheduleItem.class_id
+                      )
+                    }
+                    className="delete-item"
+                  >
+                    Excluir
+                  </button>
                 </motion.div>
               );
             })}
@@ -312,9 +329,7 @@ const Profile = () => {
               Importante! <br />
               Preencha todos os dados
             </p>
-            <button onClick={handleUpdateUser} type="submit">
-              Salvar cadastro
-            </button>
+            <button type="submit">Salvar cadastro</button>
           </footer>
         </form>
       </motion.main>
