@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Proffy" src=".github/logo.svg" height="100px" />
+    <img alt="Proffy" src="./images/logo.svg" height="100px" />
     <br>Next Level Week #02<br/>
     Node.js | ReactJS | React Native
 </h1>
@@ -17,27 +17,31 @@
   <a href="#memo-licença">Licença</a>
 </p>
 
-<p align="center">
-  <img alt="design do projeto" width="650px" src="./.github/design.png" />
+## <img align="center" alt="design do projeto web" src="./images/web.jpg" />
+
+<p>
+  <img width="40%" alt="design do projeto mobile" src="./images/mobile1.jpg" />
+
+ <img width="40%" align="right" alt="design do projeto mobile" src="./images/mobile2.jpg" />
 <p>
 
 ## :bookmark: Sobre
 
 O **Proffy** é uma aplicação Web e Mobile feita para auxiliar na conexão entre os alunos e os professores. Logo, esta aplicação oferece aos professores a possibilidade de registrar aulas, podendo adicionar informações como a disciplina, o custo e horário e aos alunos a possibilidade de buscar pelas aulas cadastradas.
-  
+
 Este projeto foi idealizado pensando no **6 de agosto**, onde se comemora o **Dia Nacional dos Profissionais da Educação**.
-  
+
 Essa aplicação foi realizada durante a Next **Level Week #2**, projeto da [Rocketseat](https://rocketseat.com.br/).
 
 ## :rocket: Tecnologias
 
--  [Typescript](https://www.typescriptlang.org/)
--  [Node.js](https://nodejs.org/en/)
--  [ReactJS](https://reactjs.org/)
--  [React Native](http://facebook.github.io/react-native/)
--  [Expo](https://expo.io/)
--  [Express](https://expressjs.com/)
--  [axios](https://github.com/axios/axios)
+- [Typescript](https://www.typescriptlang.org/)
+- [Node.js](https://nodejs.org/en/)
+- [ReactJS](https://reactjs.org/)
+- [React Native](http://facebook.github.io/react-native/)
+- [Expo](https://expo.io/)
+- [Express](https://expressjs.com/)
+- [axios](https://github.com/axios/axios)
 
 ## :boom: Como Executar
 
@@ -82,10 +86,10 @@ Essa aplicação foi realizada durante a Next **Level Week #2**, projeto da [Roc
   $ yarn start # ou npm start
 ```
 
-
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 ---
+
 <sup>Projeto desenvolvido com a tutoria de [Diego Fernandes](https://github.com/diego3g), da [Rocketseat](rocketseat.com.br).</sup>
