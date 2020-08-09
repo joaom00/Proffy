@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import logoutIcon from '../../assets/images/icons/logout.svg';
+import api from '../../services/api';
 
 import './styles.css';
-import api from '../../services/api';
 
 interface User {
   first_name: string;
@@ -41,7 +42,11 @@ const LandingHeader = () => {
 
   if (tokenIsValid) {
     return (
-      <header>
+      <motion.header
+        initial={{ y: -50 }}
+        animate={{ y: 0 }}
+        transition={{ stiffness: 1000 }}
+      >
         <Link to="/profile" className="profile">
           <img src={user?.avatar} alt="" />
           <p>
@@ -52,7 +57,7 @@ const LandingHeader = () => {
         <button onClick={handleLogout} className="logout-button">
           <img src={logoutIcon} alt="Sair da conta" />
         </button>
-      </header>
+      </motion.header>
     );
   } else {
     return <header></header>;

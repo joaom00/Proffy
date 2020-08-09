@@ -99,7 +99,7 @@
 
 #page-profile main .about-classes .input-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   gap: 3.2rem;
   margin-top: 2.4rem;
   margin-bottom: 2.4rem;
@@ -222,6 +222,10 @@
 
   #page-profile main fieldset {
     padding: 0 6.4rem;
+  }
+
+  #page-profile main .about-classes .input-container {
+    grid-template-columns: 2fr 1fr;
   }
 
   #page-profile main .schedule-item {

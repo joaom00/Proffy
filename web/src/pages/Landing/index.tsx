@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import logoImg from '../../assets/images/logo.svg';
 import landingImg from '../../assets/images/landing.svg';
@@ -44,12 +45,20 @@ const Landing2 = () => {
           <LandingHeader />
 
           <div className="hero-content">
-            <div className="logo-container">
+            <motion.div
+              initial={{ y: 50, skewY: 20, opacity: 0 }}
+              animate={{ y: 0, skewY: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="logo-container"
+            >
               <img src={logoImg} alt="Proffy" />
               <h2>Sua plataforma de estudos online.</h2>
-            </div>
+            </motion.div>
 
-            <img
+            <motion.img
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.6, duration: 0.6, stiffness: 1000 }}
               src={landingImg}
               alt="Plataforma de estudos"
               className="hero-image"
@@ -60,7 +69,12 @@ const Landing2 = () => {
 
       <section id="bottom-section">
         <div id="bottom-container" className="container">
-          <div className="title-container">
+          <motion.div
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.8, stiffness: 1000 }}
+            className="title-container"
+          >
             <p>
               Seja bem-vindo <br />
               <span>O que deseja fazer?</span>
@@ -71,21 +85,33 @@ const Landing2 = () => {
               <br /> já realizadas{' '}
               <img src={purpleHeartIcon} alt="Coração Roxo" /> 
             </span>
-          </div>
+          </motion.div>
 
           <div className="buttons-container">
-            <Link to={tokenIsValid ? '/study' : '/login'} className="study">
-              <img src={studyIcon} alt="Estudar" />
-              Estudar
-            </Link>
-
-            <Link
-              to={tokenIsValid ? '/give-classes' : '/login'}
-              className="give-classes"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
             >
-              <img src={giveClassesIcon} alt="Dar aulas" />
-              Dar aulas
-            </Link>
+              <Link to={tokenIsValid ? '/study' : '/login'} className="study">
+                <img src={studyIcon} alt="Estudar" />
+                Estudar
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+            >
+              <Link
+                to={tokenIsValid ? '/give-classes' : '/login'}
+                className="give-classes"
+              >
+                <img src={giveClassesIcon} alt="Dar aulas" />
+                Dar aulas
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>

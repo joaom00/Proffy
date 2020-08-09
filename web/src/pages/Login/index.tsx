@@ -84,7 +84,7 @@ const Login = () => {
                 </div>
 
                 <div className="password-forgot">
-                  <a href="https://google.com">Esqueci minha senha</a>
+                  <Link to="/forgot-password">Esqueci minha senha</Link>
                 </div>
               </div>
 

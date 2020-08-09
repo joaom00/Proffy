@@ -1,12 +1,13 @@
 import React, { useState, FormEvent } from 'react';
 
 import logoImg from '../../assets/images/logo.svg';
+import backIcon from '../../assets/images/icons/back.svg';
 import eyeIcon from '../../assets/images/icons/eye.svg';
 import eyeOffIcon from '../../assets/images/icons/eye-off.svg';
 
 import './styles.css';
 import api from '../../services/api';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 const Register = () => {
   const history = useHistory();
@@ -39,6 +40,9 @@ const Register = () => {
   return (
     <section id="page-register">
       <div className="register-form">
+        <Link to="/login">
+          <img src={backIcon} alt="Voltar" />
+        </Link>
         <form onSubmit={handleCreateUser}>
           <fieldset>
             <legend>Cadastro</legend>

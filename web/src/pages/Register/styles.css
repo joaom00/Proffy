@@ -10,6 +10,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.register-form > a {
+  max-width: 35.2rem;
+  margin: 0 auto;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.register-form > a:hover {
+  opacity: 0.6;
 }
 
 .register-form form {
