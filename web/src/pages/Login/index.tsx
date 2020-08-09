@@ -25,7 +25,7 @@ const Login = () => {
         password,
       })
       .then(({ data: { token } }) => {
-        window.localStorage.setItem('token', `Bearer ${token}`);
+        window.localStorage.setItem('token', token);
         history.push('/');
       })
       .catch(() => {

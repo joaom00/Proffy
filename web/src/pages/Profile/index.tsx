@@ -14,6 +14,13 @@ import api from '../../services/api';
 
 import './styles.css';
 
+interface ScheduleItem {
+  id: number;
+  week_day: number;
+  from: number;
+  to: number;
+}
+
 const Profile = () => {
   const [userId, setUserId] = useState('');
   const [first_name, setFirstName] = useState('');
@@ -26,36 +33,36 @@ const Profile = () => {
   const [subject, setSubject] = useState('');
   const [cost, setCost] = useState('');
 
-  const [scheduleItems, setScheduleItems] = useState([
-    { week_day: 0, from: '', to: '' },
+  const [scheduleItems, setScheduleItems] = useState<ScheduleItem[]>([
+    // { week_day: 0, from: '', to: '' },
   ]);
 
   function addNewScheduleItem() {
-    setScheduleItems([
-      ...scheduleItems,
-      {
-        week_day: 0,
-        from: '',
-        to: '',
-      },
-    ]);
+    // setScheduleItems([
+    //   ...scheduleItems,
+    //   {
+    //     week_day: 0,
+    //     from: '',
+    //     to: '',
+    //   },
+    // ]);
   }
 
-  function setScheduleItemValue(
-    position: number,
-    field: string,
-    value: string
-  ) {
-    const updatedScheduleItems = scheduleItems.map((scheduleItem, index) => {
-      if (index === position) {
-        return { ...scheduleItem, [field]: value };
-      }
+  // function setScheduleItemValue(
+  //   position: number,
+  //   field: string,
+  //   value: string
+  // ) {
+  //   const updatedScheduleItems = scheduleItems.map((scheduleItem, index) => {
+  //     if (index === position) {
+  //       return { ...scheduleItem, [field]: value };
+  //     }
 
-      return scheduleItem;
-    });
+  //     return scheduleItem;
+  //   });
 
-    setScheduleItems(updatedScheduleItems);
-  }
+  //   setScheduleItems(updatedScheduleItems);
+  // }
 
   function handleUpdateUser(event: FormEvent) {
     event.preventDefault();
@@ -96,6 +103,8 @@ const Profile = () => {
 
       setSubject(response.data.classes.subject);
       setCost(response.data.classes.cost);
+
+      setScheduleItems(response.data.schedule);
     });
   }, [userId]);
 
@@ -252,26 +261,20 @@ const Profile = () => {
               </button>
             </legend>
 
-            {scheduleItems.map((scheduleItem, index) => {
+            {scheduleItems.map((scheduleItem) => {
               return (
                 <motion.div
                   className="schedule-container"
                   initial={{ y: 20 }}
                   animate={{ y: 0 }}
-                  key={scheduleItem.week_day}
+                  key={scheduleItem.id}
                 >
                   <motion.div className="schedule-item">
                     <Select
                       name="week_day"
                       label="Dia da semana"
+                      disabled
                       value={scheduleItem.week_day}
-                      onChange={(event) =>
-                        setScheduleItemValue(
-                          index,
-                          'week_day',
-                          event.target.value
-                        )
-                      }
                       options={[
                         { value: '0', label: 'Domingo' },
                         { value: '1', label: 'Segunda-feira' },
@@ -285,20 +288,16 @@ const Profile = () => {
                     <Input
                       name="from"
                       label="Das"
-                      type="time"
-                      value={scheduleItem.from}
-                      onChange={(event) =>
-                        setScheduleItemValue(index, 'from', event.target.value)
-                      }
+                      type="text"
+                      disabled
+                      value={`${scheduleItem.from / 60} horas`}
                     />
                     <Input
                       name="to"
                       label="Até"
-                      type="time"
-                      value={scheduleItem.to}
-                      onChange={(event) =>
-                        setScheduleItemValue(index, 'to', event.target.value)
-                      }
+                      type="text"
+                      disabled
+                      value={`${scheduleItem.to / 60} horas`}
                     />
                   </motion.div>
                   <button className="delete-item">Excluir</button>

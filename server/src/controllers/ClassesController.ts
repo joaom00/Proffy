@@ -45,6 +45,16 @@ export default class ClassesController {
 
     const trx = await db.transaction();
 
+    const subjectUserExists = await trx('classes')
+      .where({ user_id: req.userId, subject: subject })
+      .first();
+
+    if (subjectUserExists) {
+      return res.status(404).json({
+        message: 'Esta aula já existe.',
+      });
+    }
+
     try {
       const insertedClassesIds = await trx('classes').insert({
         subject,
@@ -67,7 +77,7 @@ export default class ClassesController {
 
       await trx.commit();
 
-      return res.status(201).send();
+      return res.status(201).json({ message: 'Aula criada com sucesso.' });
     } catch (err) {
       console.log(err);
       await trx.rollback();
@@ -76,5 +86,15 @@ export default class ClassesController {
         error: 'Unexpected error while creating new class',
       });
     }
+  }
+
+  async delete(req: Request, res: Response) {
+    const { class_id, week_day } = req.body;
+
+    await db('class_schedule').delete().where({ class_id, week_day });
+
+    return res.json({
+      message: 'Deletado com sucesso.',
+    });
   }
 }

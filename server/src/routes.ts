@@ -19,6 +19,7 @@ routes.put('/users/:id', authMiddleware, usersController.update);
 
 routes.get('/classes', authMiddleware, classesControllers.index);
 routes.post('/classes', authMiddleware, classesControllers.create);
+routes.delete('/classes', authMiddleware, classesControllers.delete);
 
 routes.get('/connections', connectionsController.index);
 routes.post('/connections', connectionsController.create);
