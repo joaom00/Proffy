@@ -58,7 +58,7 @@ Essa aplicação foi realizada durante a Next **Level Week #2**, projeto da [Roc
   // HTTPS
   $ git clone https://github.com/joaom00/Proffy.git
   
-  //SSH
+  // SSH
   $ git clone git@github.com:joaom00/Proffy.git
 ```
 
