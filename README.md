@@ -55,7 +55,11 @@ Essa aplicação foi realizada durante a Next **Level Week #2**, projeto da [Roc
 1. Faça um clone do repositório:
 
 ```sh
-  $ git clone https://github.com/HigorSnt/proffy.git
+  // HTTPS
+  $ git clone https://github.com/joaom00/Proffy.git
+  
+  //SSH
+  $ git clone git@github.com:joaom00/Proffy.git
 ```
 
 2. Executando a Aplicação:
@@ -63,25 +67,35 @@ Essa aplicação foi realizada durante a Next **Level Week #2**, projeto da [Roc
 ```sh
   # API
   $ cd server
+  
   # Instalando as dependências do projeto.
   $ yarn # ou npm install
+  
   # Configurando o banco de dados e criando as tabelas.
   $ yarn knex:migrate # ou npm run knex:migrate
 
   # Inicie a API
   $ yarn start # ou npm start
+  
+  ---------------------------------------
 
   # Aplicação web
   $ cd web
+  
   # Instalando as dependências do projeto.
   $ yarn # ou npm install
+  
   # Inicie a aplicação web
   $ yarn start # ou npm start
+  
+  ---------------------------------------
 
   # Aplicação mobile
   $ cd mobile
+  
   # Instalando as dependências do projeto.
   $ yarn # ou npm install
+  
   # Inicie a aplicação mobile
   $ yarn start # ou npm start
 ```
